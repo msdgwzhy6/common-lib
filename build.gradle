@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:design:27.1.1'
+
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+
+    //retrofit rxjava 全家桶
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'org.greenrobot:eventbus:3.0.0'
+    api 'com.orhanobut:logger:2.1.0'
+    //qmui
+    implementation 'com.qmuiteam:qmui:1.0.6'
+    implementation 'com.simple:spiderman:1.0.1'
+    //
+    api 'com.zhy:base-rvadapter:3.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
+    // recycler view divider
+    api 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+}
+repositories {
+    mavenCentral()
+}
