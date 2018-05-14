@@ -1,5 +1,7 @@
 package com.simple.common.utils;
 
+import android.annotation.SuppressLint;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,11 +49,6 @@ public class DateUtils {
         return age < 0 ? 0 : age;
     }
 
-    public static String getChatMessageTime(long timestamp) {
-        return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
-                .format(new Date(timestamp * 1000));
-    }
-
     public static long getMillis(Date date) {
         return date.getTime();
     }
@@ -65,6 +62,16 @@ public class DateUtils {
             e.printStackTrace();
         }
         return getMillis(date);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static String format_yyyy_MM_dd_HH_mm(long time) {
+        return new SimpleDateFormat(YYYY_MM_DD_HH_MM).format(time);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public static String format_yyyy_MM_dd(long time) {
+        return new SimpleDateFormat(YYYY_MM_DD).format(time);
     }
 
 }
