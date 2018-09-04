@@ -16,11 +16,13 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.simple.common.utils.LogUtils;
+import com.simple.common.utils.LogCatStrategy;
 import com.simple.spiderman.CrashModel;
 import com.simple.spiderman.SpiderMan;
 
 public class CpLib {
+
+    public static Context mContext;
 
     static {//static 代码段可以防止内存泄露
         //设置全局的Header构建器
@@ -41,14 +43,17 @@ public class CpLib {
         });
     }
 
-    public static void init(Application application){
+    public static void init(Application application, String logTag) {
+        mContext = application.getApplicationContext();
 
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
                 .methodCount(2)         // (Optional) How many method line to show. Default 2
-                .methodOffset(5)        // (Optional) Hides internal method calls up to offset. Default 5
-                .tag(LogUtils.TAG)   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+//                .methodOffset(5)        // (Optional) Hides internal method calls up to offset. Default 5
+                .logStrategy(new LogCatStrategy()) // (Optional) Changes the log strategy to print out. Default LogCat
+                .tag(logTag)   // (Optional) Global tag for every log. Default PRETTY_LOGGER
                 .build();
+
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
 
         SpiderMan.getInstance()
@@ -64,5 +69,7 @@ public class CpLib {
 
                     }
                 });
+
+//        FileDownloader.setupOnApplicationOnCreate(application);
     }
 }

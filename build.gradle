@@ -34,7 +34,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-
     //retrofit rxjava 全家桶
     api 'com.squareup.retrofit2:retrofit:2.3.0'
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -54,6 +53,12 @@ dependencies {
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
     // recycler view divider
     api 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    // 下载库
+    api 'com.liulishuo.filedownloader:library:1.7.3'
+    api 'com.yanzhenjie:permission:2.0.0-rc5'
+    //
+    debugApi 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseApi 'com.readystatesoftware.chuck:library-no-op:1.1.0'
 }
 repositories {
     mavenCentral()

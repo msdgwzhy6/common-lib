@@ -1,5 +1,8 @@
 package com.simple.common.net;
 
+import com.readystatesoftware.chuck.ChuckInterceptor;
+import com.simple.common.CpLib;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -12,17 +15,12 @@ public class BaseRetrofit {
     public static Retrofit get(String baseUrl) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(20, TimeUnit.SECONDS);
+        builder.addInterceptor(new ChuckInterceptor(CpLib.mContext));
         OkHttpClient client = builder.build();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        return retrofit;
+        return get(baseUrl);
     }
 
-    public static Retrofit get(String baseUrl,OkHttpClient client) {
+    public static Retrofit get(String baseUrl, OkHttpClient client) {
         return new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(client)

@@ -10,12 +10,12 @@
     <dimen name="px14">7sp</dimen>
     <dimen name="px16">8sp</dimen>
     <dimen name="px18">9sp</dimen>
-    <dimen name="px20">10sp</dimen>
-    <dimen name="px22">11sp</dimen>
-    <dimen name="px24">12sp</dimen>
+    <dimen name="px20">12sp</dimen>
+    <dimen name="px22">13sp</dimen>
+    <dimen name="px24">14sp</dimen>
     <dimen name="px26">13sp</dimen>
-    <dimen name="px28">14sp</dimen>
-    <dimen name="px30">15sp</dimen>
+    <dimen name="px28">16sp</dimen>
+    <dimen name="px30">17sp</dimen>
     <dimen name="px32">16sp</dimen>
     <dimen name="px34">17sp</dimen>
     <dimen name="px36">18sp</dimen>
